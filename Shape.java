@@ -1,16 +1,18 @@
 //TODO
 ////////////////////////////////
-// ! Remove System.out.prinntln from everwhere
-// * Empty array possible? => ret null
-// * Return extra spzce
-// * Check validity of triangle
-// * Sort centroids
+// O Remove System.out.prinntln from everwhere
+// O Empty array possible? => ret null
+// O Return extra spzce
+// O Check validity of triangle
+// O Sort centroids
 
-// * TYPEMESH=PROPER=>BOUNDARY null
-//* SIZE OF BOUNDARY + SEMI_MESH
+// O TYPEMESH=PROPER=>BOUNDARY null
+// O SIZE OF BOUNDARY + SEMI_MESH
 
 //* Check ID#123
 //*!!!!!! Change connectivity to edges
+
+//Merge??
 
 public class Shape implements ShapeInterface
 {	
@@ -892,7 +894,7 @@ public class Shape implements ShapeInterface
 					}
 				}
 
-				while (x<t1.size()&&y<t2.size) {
+				while (x<t1.size&&y<t2.size) {
 					if (t1.get(x).compareTo(t2.get(y))!=-1){
 						if (t1.get(x)!=t&&(j==0||t1.get(x)!=res[j-1]))
 							res[j++]=t1.get(x);
@@ -924,13 +926,13 @@ public class Shape implements ShapeInterface
 
 				while (x<t1.size()&&z<t3.size()) {
 					if (t1.get(x).compareTo(t3.get(z))!=-1 ){
-						if (t1.get(x)!=t&&(j==0||t3.get(z)!=res[j-1]))
+						if (t1.get(x)!=t&&(j==0||t1.get(x)!=res[j-1]))
 							res[j++]=t1.get(x);
 						x++;
 						//System.out.println("4.1");
 					}
 					else{
-						if (t3.get(z)!=t&&(j==0||t1.get(x)!=res[j-1]))
+						if (t3.get(z)!=t&&(j==0||t3.get(z)!=res[j-1]))
 							res[j++]=t3.get(z);
 						z++;
 						//System.out.println("4.2");

@@ -57,8 +57,11 @@ class Driver {
 
                     case "ADD_TRIANGLE":
 			//System.out.println("Add TriangleInterface ");	
-			
+			qstart_time = System.nanoTime();
+                        
 			boolean vaild= shape_intr.ADD_TRIANGLE(input);
+			qend_time = System.nanoTime();
+                        TOT_TIME+=(qend_time-qstart_time);
                        if (!vaild) System.out.println("Invalid Triangle:\t"+input[0]+" "+input[1]+" "+input[2]+"\t"+input[3]+" "+input[4]+ " "+input[5]+"\t"+input[6]+" "+input[7]+" "+input[8]); 
                         break;
 
