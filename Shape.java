@@ -519,10 +519,11 @@ public class Shape implements ShapeInterface
 					ctr_centroid++;
 					c.add(t.t[x]);
 					t.t[x].visited=true;
+					///System.err.println(t.t[x].p[0]+" "+t.t[x].p[1]+" "+t.t[x].p[2]);
 				}
 			}
 		}
-
+				//System.err.println(ctr_centroid);
 
 		/*
 		
@@ -564,7 +565,8 @@ public class Shape implements ShapeInterface
 			*/
 		
 		//}
-
+			//System.err.println(ctr_centroid);
+			//System.err.println();
 		c.avg(ctr_centroid);
 		return c;
 	}
@@ -595,6 +597,7 @@ public class Shape implements ShapeInterface
 		Point res=null;
 		findComponents();
 		int pos=-1;
+		boolean flag=false;
 		for (int i=0;i<components.size; i++){
 			for (int j=0;j<components.get(i).size; j++){
 
@@ -603,12 +606,23 @@ public class Shape implements ShapeInterface
 				if (arr.get(j).contains(point_coordinates)){
 					if(!added_new_c&&centroids_store!=null) return centroids_store.get(i);
 
+					/*Triangle t=arr.get(j);
+					for (int _i=0;_i<3;_i++)
+						for (int _j=0;_j<3;_j++)
+							System.err.print(t.t[_i].p[_j]+"\t");
+					*/
+
 					pos=i;
 					res=computeCentroid(arr.get(j),i);
+					flag=true;
+
 
 					break;
 				}
+
 			}
+			if (flag)
+					break;
 		}
 		/*
 		ArrayListForPoints arr=allPoints[getHashCode(point_coordinates[0]+point_coordinates[1]+point_coordinates[2])];
