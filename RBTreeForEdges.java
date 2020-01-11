@@ -1,7 +1,6 @@
 //REPLACE <0 with <=0
 public class RBTreeForEdges  {
 	RedBlackNode<Float,Edge> root=null;
-    int ct=0;
 
     private void rotateLeft(RedBlackNode<Float,Edge> pivot){
         RedBlackNode<Float,Edge> temp= pivot.getParent();
@@ -61,7 +60,6 @@ public class RBTreeForEdges  {
             p1.addEdge(e);
             p2.addEdge(e);
     		root.setColor('B');
-            ct++;
     		return e;
     	}
     	RedBlackNode<Float,Edge> parent=null,curr=root,uncle;
@@ -81,7 +79,6 @@ public class RBTreeForEdges  {
                 curr.addData(e);
                 p1.addEdge(e);
                 p2.addEdge(e);
-                //ct++;
                 return e;
             }
     		
@@ -105,7 +102,6 @@ public class RBTreeForEdges  {
         //IMP
         p1.addEdge(e);
         p2.addEdge(e);
-        ct++;
 
 
         while (curr!=root && parent!=root){
@@ -205,37 +201,7 @@ public class RBTreeForEdges  {
     public Edge[] boundaryEdges(int size){
         ArrayListForEdges e=new ArrayListForEdges(size);
 
-        if (root != null){
-            StackNodes s = new StackNodes(ct+10); 
-            RedBlackNode<Float,Edge> curr = root; 
-      
-            while (curr != null || !s.isEmpty()) 
-            { 
-                while (curr!=null) 
-                {
-                    s.push(curr); 
-                    curr = curr.left; 
-                } 
-
-                curr = s.pop();
-
-                ArrayList<Edge> list=curr.getValues();
-                for (int i=0;i<list.size();i++){
-                    if (list.get(i).getTriangles().size()==1){
-                        //System.out.println(list.get(i).e[0].p[0]+" "+list.get(i).e[0].p[1]+" "+list.get(i).e[0].p[2]+" \t "+list.get(i).e[1].p[0]+" "+list.get(i).e[1].p[1]+" "+list.get(i).e[1].p[2]);
-                        e.add(list.get(i));
-                    }
-                }
-
-                curr =curr.right; 
-            } 
-        }
-
-
-
-
-
-        //traverse(root, e);
+        traverse(root, e);
 
         //System.out.println("TEST: "+e.toArray().length);
         //NOT REQ
@@ -244,7 +210,6 @@ public class RBTreeForEdges  {
 
     }
 
-    /*
     public void traverse(RedBlackNode<Float,Edge> node,ArrayListForEdges e){
         if (node==null) return;
         traverse(node.getLeftChild(),e);
@@ -258,7 +223,6 @@ public class RBTreeForEdges  {
         traverse(node.getRightChild(),e);
 
     }
-    */
 
 
     /*Not using this

@@ -5,7 +5,7 @@ Assignment 6
 +===============================================+
 
 STATUS: All Working | ISSUES: Nil 
-(Last Updated: 2019-11-09 23:11:10)
+(Last Updated: 2019-11-09 23:51:06)
 
 +-----------------------------------------------+
 | README.txt									                  |
@@ -30,14 +30,12 @@ STATUS: All Working | ISSUES: Nil
   An extension of ArrayList specific to these datastructures made to return the array directly (without typecasting). trimmedArray() returns an array of length equal to the number of elements in it.
 
 
-> class Queue(Point/Triangle)s
+> class QueueFor(Point/Triangle)s
   A typical Queue implementation which has proeprty of FIFO. Front refers to the element who is waiting to get dequeued and rear to the place where an element must get enqueued. A queue is empty if front is rear. resetToUnvisited() resets the visted state of all the elements insert (feature supported by these two data structure only).
 
-> class Stack(Point/Triangle)s
-  A typical Stack implementation which has proeprty of LIFO. Elements are added at top and removed from the topmost index.
+> class StackFor(Point/Triangle)s
+  A typical Stack implementation which has proeprty of LIFO. Elements are added at top and removed from the topmost element.
 
-> class StackNodes
-  Stack implementation based on LIFO for RedBlackNode. Elements are added at top and removed from the topmost index.
 
 > class RedBlackNode<T,E>
   A node for Red-Black Tree. Stores a key and a list of values, left and right child, parent and colour (R-Red by default).  
@@ -76,8 +74,8 @@ STATUS: All Working | ISSUES: Nil
   - search()                                                                      O(logn)
     Given the coordinates, search for the edge by traversing down. Go left if key < curr.key; right if key > curr.key until the required key is found. If found, return all the values contained in it. Else return null.
 
-  - boundaryEdges(int size)                                                        O(n)
-    Returns the array of boundaries of given size by doing a iterative in-order traversal using a Stack and adding the boundary edges (those bounded by one triangle only) alone. It is self sorted.
+  - boundaryEdges(int size)                                                     O(n)
+    Returns the array of boundaries of given size by doing a in-order traversal and adding the boundary edges alone. It is self sorted.
 
   -
 
